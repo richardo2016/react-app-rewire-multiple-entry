@@ -1,4 +1,8 @@
-[React App Rewire Multiple Entry] lets you configure multiple entries in [Create React App]
+## @richardo2016/react-app-rewire-multiple-entry
+
+[![NPM version](https://img.shields.io/npm/v/@richardo2016/react-app-rewire-multiple-entry.svg)](https://www.npmjs.org/package/@richardo2016/react-app-rewire-multiple-entry)
+
+[React App Rewire Multiple Entry] lets you configure multiple entry in [Create React App]
 v1, v2 and v3 without ejecting.
 
 ## Usage
@@ -6,7 +10,7 @@ v1, v2 and v3 without ejecting.
 Add [React App Rewire Multiple Entry] to your [Rewired] React app:
 
 ```bash
-npm install react-app-rewire-multiple-entry --save-dev
+npm install @richardo2016/react-app-rewire-multiple-entry --save-dev
 ```
 
 Next, add [React App Rewire Multiple Entry] to `config-overrides.js` in your React app
@@ -17,7 +21,7 @@ directory:
 ```js
 // config-overrides.js
 
-const multipleEntry = require('react-app-rewire-multiple-entry')([
+const multipleEntry = require('@richardo2016/react-app-rewire-multiple-entry')([
   {
     entry: 'src/entry/landing.js',
     template: 'public/landing.html',
@@ -38,7 +42,7 @@ module.exports = {
 ```js
 // config-overrides.js
 
-const multipleEntry = require('react-app-rewire-multiple-entry')([
+const multipleEntry = require('@richardo2016/react-app-rewire-multiple-entry')([
   {
     entry: 'src/entry/landing.js',
     template: 'public/landing.html',
@@ -65,7 +69,7 @@ module.exports = {
 ```js
 // config-overrides.js
 
-const multipleEntry = require('react-app-rewire-multiple-entry')([
+const multipleEntry = require('@richardo2016/react-app-rewire-multiple-entry')([
   {
     // Webpack extra entry
     entry: 'src/entry/standard.js',
@@ -111,9 +115,10 @@ module.exports = {
 
 ### Options
 
-You can pass a array of entry configuration options to `react-app-rewire-multiple-entry`, the entry in the array has attributes below:
+You can pass a array of entry configuration options to `@richardo2016/react-app-rewire-multiple-entry`, the entry in the array has attributes below:
 
 - `entry` [Required] Webpack entry JS file. Throw error when empty.
+- `hash` [Optional] Whether use hash in output name for this entry.
 - `template` [Optional] HTML template used in plugin [HtmlWebpackPlugin]. Default value: `public/index.html`.
 - `outPath`: [Optional] The file wirte the HTML to. You can specify a subdirectory. **If empty, it will be calculated by `path.relative(process.cwd(), template)`**
 
@@ -121,12 +126,19 @@ You can pass a array of entry configuration options to `react-app-rewire-multipl
 
 - `addMultiEntry` Inject settings for multiple entry in webpack config
 
-That’s it! Now you can control mulitple entries, enjoy coding!
+That’s it! Now you can control mulitple entry, enjoy coding!
 
 ---
 
 [create react app]: https://github.com/facebook/create-react-app
-[react app rewire multiple entry]: https://github.com/Derek-Hu/react-app-rewire-multiple-entry
+[(original)react app rewire multiple entry]: https://github.com/Derek-Hu/react-app-rewire-multiple-entry
+[react app rewire multiple entry]: https://github.com/richardo2016/react-app-rewire-multiple-entry
 [customize-cra]: https://github.com/arackaf/customize-cra#readme
 [rewired]: https://github.com/timarney/react-app-rewired#how-to-rewire-your-create-react-app-project
 [htmlwebpackplugin]: https://github.com/jantimon/html-webpack-plugin
+
+## License
+
+[MIT](./LICENSE)
+
+**NOTICE** This repo is forked from [](mailto:benlv.hu@dianrong.com)'s [Derek-Hu/react-app-rewire-multiple-entry](https://github.com/Derek-Hu/react-app-rewire-multiple-entry/commit/4169213f571ff5a4d33d1b2c743ea6d3b2d8756e), which version without any LICENSE.

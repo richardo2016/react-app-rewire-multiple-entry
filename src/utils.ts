@@ -3,20 +3,19 @@ import XXH from 'xxhashjs';
 
 const H = XXH.h32(0xabcd); // seed = 0xABCD
 
-export const formatName = function (name: string) {
+export const formatName = function (name: string, useHash: boolean = true) {
   if (!name) {
     name = '';
   }
-  return (
-    name
-      .split('/')
-      .reverse()[0]
-      .match(/^[^.]*/)[0] +
-    '.' +
-    H.update(name)
-      .digest()
-      .toString(16)
-  );
+
+  const _name = name.split('/').reverse()[0].match(/^[^.]*/)[0]
+
+  if (!useHash)
+    return _name;
+
+  const hash = H.update(name).digest().toString(16)
+
+  return `${_name}.${hash}`;
 };
 
 export const checkFileExist = function (file: string) {

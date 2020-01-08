@@ -39,7 +39,7 @@ export default function(params:EntryParam[]):EntryWebpack[] | null {
     checkFileExist(entryPath);
 
     return {
-      name: formatName(entry.entry),
+      name: formatName(entry.entry, entry.entryNameHash),
       entry: entryPath,
       template: entry.template,
       outPath: entry.outPath

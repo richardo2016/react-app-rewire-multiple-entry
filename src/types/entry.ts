@@ -1,6 +1,7 @@
 
 export interface EntryParam {
   entry: string,
+  entryNameHash?: boolean,
   template?: string,
   outPath?: string
 }
